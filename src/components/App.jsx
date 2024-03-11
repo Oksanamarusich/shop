@@ -1,16 +1,16 @@
+import { Routes, Route } from 'react-router-dom';
+import { lazy } from 'react';
+
+import { Layout } from './Layout/Layout';
+
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      Hello world
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+      </Route>
+    </Routes>
   );
 };
